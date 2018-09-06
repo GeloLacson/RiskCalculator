@@ -1,0 +1,47 @@
+<html>
+
+<head>
+    <title>
+        GeloLac | Risk Management Calculator
+    </title>
+</head>
+
+<body>
+    <div>
+        <form>
+
+            <label>Capital:</label>
+            <input type="number" id="capital" min="100000" value="100000" />
+
+            <label>Entry:</label>
+            <input type="number" id="entry" min="0" value="0" />
+
+            <label>Cutloss Point:</label>
+            <input type="number" id="cutloss" min="0" value="0" />
+
+            <label>Possible TP:</label>
+            <input type="number" id="tp" />
+        </form>
+    </div>
+
+    <div>
+        <label>RRR:</label>
+        <p class="risk"></p>
+        <label>1% of the capital:</label>
+        <p class="pctrisk"></p>
+        <label>No of Shares:</label>
+        <p class="sharesnum"></p>
+        <label>Value:</label>
+        <p class="value"></p>
+    </div>
+
+    <!-- <div>
+        <label>Shares:</label>
+        <p class="shares"></p>
+    </div> -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+
+</html>
