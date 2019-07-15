@@ -14,7 +14,6 @@ $(document).ready(function() {
     var riskNumerator = (targetPrice - entryPrice).toFixed(4);
     var riskDenominator = (entryPrice - cutlossPrice).toFixed(4);
     var riskRatio = (riskNumerator / riskDenominator).toFixed(2);
-    var valueOfShares = entryPrice * numberofShares;
     var averageRiskPrice =
       entryPrice +
       entryPrice * 0.00295 -
@@ -27,11 +26,25 @@ $(document).ready(function() {
           )
         : 0.0;
 
+    var buyvalueOfShares = entryPrice * numberofShares;
+    var buyingFee =
+      buyvalueOfShares * 0.0025 < 20
+        ? 20 +
+          20 * 0.12 +
+          buyvalueOfShares * 0.00005 +
+          buyvalueOfShares * 0.0001
+        : buyvalueOfShares * 0.0025 +
+          buyvalueOfShares * 0.0025 * 0.12 +
+          buyvalueOfShares * 0.00005 +
+          buyvalueOfShares * 0.0001;
+    var netbuy = buyingFee + buyvalueOfShares;
     //clear field values
     $(".risk").empty();
     $(".pctrisk").empty();
     $(".sharesnum").empty();
-    $(".value").empty();
+    $(".grossbuy").empty();
+    $(".buyingfee").empty();
+    $(".netbuy").empty();
 
     //populate fields
     if (!isNaN(riskRatio)) {
@@ -48,7 +61,9 @@ $(document).ready(function() {
     } else {
       $(".sharesnum").append(numberofShares);
     }
-    $(".value").append(entryPrice * numberofShares);
+    $(".gross").append(buyvalueOfShares);
+    $(".buyingfee").append(buyingFee);
+    $(".netbuy").append(netbuy);
   }
 
   //functions for computation
