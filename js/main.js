@@ -61,7 +61,7 @@ $(document).ready(function() {
     } else {
       $(".sharesnum").append(numberofShares);
     }
-    $(".gross").append(buyvalueOfShares);
+    $(".grossbuy").append(buyvalueOfShares);
     $(".buyingfee").append(buyingFee);
     $(".netbuy").append(netbuy);
   }
